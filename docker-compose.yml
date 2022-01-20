@@ -24,6 +24,7 @@ services:
     volumes:
       - ./.git:/home/app/.git
       - ./dist:/home/app/dist
+      - ./frontend:/home/app/frontend
     entrypoint: ["npm", "run", "dev"]
     profiles:
       - dev

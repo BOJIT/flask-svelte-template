@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
+const path = require('path');
 
 /* Environment-specific dependencies */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -32,7 +33,8 @@ module.exports = merge(common, {
 				extractComments: false,
 			}),
 			new HtmlWebpackPlugin({
-				// template: "./src/index.html",
+				favicon: path.resolve(__dirname, './assets/favicon/icon_x48.png'),
+				title: "flask-svelte-template",
 				minify: {
 					removeAttributeQuotes: true,
 					collapseWhitespace: true,

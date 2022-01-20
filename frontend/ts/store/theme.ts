@@ -14,6 +14,10 @@ const DEFAULT_THEME: Theme = {
 
 const theme_store = writable(DEFAULT_THEME);
 
+function reset() {
+	theme_store.set(DEFAULT_THEME);
+}
+
 /*----------------------------------------------------------------------------*/
 
 /* Handle window theme change without page refresh */
@@ -61,5 +65,6 @@ theme_store.subscribe((theme: Theme) => {
 export default {
 	subscribe: theme_store.subscribe,
 	set: theme_store.set,
-	update: theme_store.update
+	update: theme_store.update,
+	reset
 }

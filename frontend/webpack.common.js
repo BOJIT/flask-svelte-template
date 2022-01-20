@@ -4,22 +4,23 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	entry: {
-		'bundle': ['./frontend/ts/main.ts']
+		'bundle': path.resolve(__dirname, './ts/main.ts')
 	},
 	resolve: {
 		alias: {
 			svelte: path.dirname(require.resolve('svelte/package.json')),
-			store: path.resolve(__dirname, './frontend/ts/store/'),
-			styles: path.resolve(__dirname, './frontent/scss/'),
-			components: path.resolve(__dirname, './frontend/svelte/components'),
-			global: path.resolve(__dirname, './frontend/ts/global/'),
+			store: path.resolve(__dirname, './ts/store/'),
+			styles: path.resolve(__dirname, './scss/'),
+			components: path.resolve(__dirname, './svelte/components'),
+			global: path.resolve(__dirname, './ts/global/'),
 		},
 		extensions: ['.mjs', '.js', '.ts', '.svelte'],
 		mainFields: ['svelte', 'browser', 'module', 'main']
 	},
 	output: {
-		path: path.join(__dirname, '/dist'),
-		filename: '[name].[contenthash].js'
+		path: path.join(__dirname, '../dist'),
+		filename: '[name].[contenthash].js',
+		clean: true
 	},
 	module: {
 		rules: [
