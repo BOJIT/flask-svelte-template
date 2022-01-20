@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  # Production build
+  prod:
+    build:
+      context: ./
+      network: host
+    volumes:
+      - ./dist:/home/app/dist
+    profiles:
+      - prod
+
+  # Development server
+  dev:
+    build:
+      context: ./
+      network: host
+    expose:
+      - '5000'
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./static:/home/app/static
+      - ./dist:/home/app/dist
+      - ./app:/home/app/app
+    entrypoint: ["npm", "start"]
+    profiles:
+      - dev
