@@ -28,7 +28,9 @@
   },
   "scripts": {
     "build": "npx webpack --config frontend/webpack.prod.js",
-    "dev": "npx webpack --config frontend/webpack.dev.js"
+    "dev": "npx concurrently 'npm:flask-dev' 'npm:svelte-dev'",
+    "flask-dev": "cross-env FLASK_APP=backend/server.py FLASK_ENV=development flask run --help",
+    "svelte-dev": "npx webpack --config frontend/webpack.dev.js"
   },
   "dependencies": {
     "@fontsource/comfortaa": "^4.5.0",

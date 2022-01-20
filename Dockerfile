@@ -17,8 +17,8 @@ ENV PYTHONFAULTHANDLER 1
 RUN apk add --no-cache python3-dev py3-pip build-base
 
 # Install Pip dependencies
-# COPY Pipfile ./
-# RUN pip3 install pipenv && pipenv install --deploy
+COPY ./backend/Pipfile ./backend/
+RUN pip3 install pipenv && cd ./backend && pipenv install --deploy --python /usr/bin/python3 && cd ../
 
 # Install NPM dependencies first (cached layer)
 COPY package.json ./
@@ -26,7 +26,5 @@ RUN npm install
 
 # Copy across all other files
 COPY . ./
-
-RUN ls
 
 ENTRYPOINT ["npm", "run", "build"]
