@@ -29,7 +29,7 @@
   "scripts": {
     "build": "npx webpack --config frontend/webpack.prod.js",
     "dev": "npx concurrently 'npm:flask-dev' 'npm:svelte-dev'",
-    "flask-dev": "cross-env FLASK_APP=backend/server.py FLASK_ENV=development flask run --help",
+    "flask-dev": "cd ./backend && cross-env FLASK_APP=backend/server.py FLASK_ENV=development pipenv run python -m flask run --host 0.0.0.0",
     "svelte-dev": "npx webpack --config frontend/webpack.dev.js"
   },
   "dependencies": {

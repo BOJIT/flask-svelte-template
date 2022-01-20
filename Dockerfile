@@ -16,13 +16,13 @@ ENV PYTHONFAULTHANDLER 1
 # Install Python and relevant packages
 RUN apk add --no-cache python3-dev py3-pip build-base
 
-# Install Pip dependencies
-COPY ./backend/Pipfile ./backend/
-RUN pip3 install pipenv && cd ./backend && pipenv install --deploy --python /usr/bin/python3 && cd ../
-
 # Install NPM dependencies first (cached layer)
 COPY package.json ./
 RUN npm install
+
+# Install Pip dependencies
+COPY ./backend/Pipfile ./backend/
+RUN pip3 install pipenv && cd ./backend && pipenv install --deploy --python /usr/bin/python3
 
 # Copy across all other files
 COPY . ./

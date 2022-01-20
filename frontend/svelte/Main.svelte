@@ -4,4 +4,4 @@
 	storage.init();
 </script>
 
-<h1>Hello World!</h1>
+<h1>Hello Worl!</h1>
