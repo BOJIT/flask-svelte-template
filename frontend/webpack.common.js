@@ -1,23 +1,21 @@
 /* Common dependencies */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ModuleFilenameHelpers } = require('webpack');
 
 module.exports = {
 	entry: {
-		'bundle': ['./src/main.ts']
+		'bundle': ['./frontend/ts/main.ts']
 	},
 	resolve: {
 		alias: {
 			svelte: path.dirname(require.resolve('svelte/package.json')),
-			src: path.resolve(__dirname, 'src/')
+			store: path.resolve(__dirname, './frontend/ts/store/'),
+			styles: path.resolve(__dirname, './frontent/scss/'),
+			components: path.resolve(__dirname, './frontend/svelte/components'),
+			global: path.resolve(__dirname, './frontend/ts/global/'),
 		},
 		extensions: ['.mjs', '.js', '.ts', '.svelte'],
-		mainFields: ['svelte', 'browser', 'module', 'main'],
-		fallback: {
-			"fs": false,
-			"path": require.resolve('path-browserify')
-		}
+		mainFields: ['svelte', 'browser', 'module', 'main']
 	},
 	output: {
 		path: path.join(__dirname, '/dist'),
@@ -25,35 +23,6 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			// Don't use NoFlo's Component Loader
-			{
-				test: /noflo([\\]+|\/)lib([\\]+|\/)loader([\\]+|\/)register.js$/,
-				use: [
-					{
-						loader: 'noflo-component-loader',
-							options: {
-							graph: null,
-							debug: false,
-							baseDir: path.resolve(__dirname, 'src/editor/components/'),
-							manifest: {
-								runtimes: ['noflo'],
-								discover: false,
-							},
-							runtimes: [
-								'noflo-browser',
-							],
-						},
-					},
-				],
-			},
-			// KlayJS Web Worker
-			{
-				test: /klay\.js$/,
-				type: 'asset/resource',
-				generator: {
-					filename: 'worker/[name].js'
-				}
-			},
 			{
 				test: /\.ts$/,
 				loader: 'ts-loader',

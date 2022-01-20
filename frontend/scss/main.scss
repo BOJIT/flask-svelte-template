@@ -1,0 +1,12 @@
+/* Global CSS Entrypoint */
+@charset "utf-8";
+
+/* Themes */
+@use "styles/theme.scss";
+
+/* Bulma CSS */
+@import "~bulma/bulma";
+
+/* Custom Fonts */
+@import "~@fontsource/comfortaa/index.css";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";

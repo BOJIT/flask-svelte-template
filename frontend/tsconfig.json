@@ -1,6 +1,6 @@
 {
 	"extends": "@tsconfig/svelte/tsconfig.json",
-	"include": ["src/**/*", "src/node_modules/**/*"],
+	"include": ["./**/*", "../node_modules/**/*"],
 	"exclude": ["node_modules/*", "__sapper__/*", "static/*"],
 	"compilerOptions": {
 		"allowJs": true,
@@ -8,7 +8,10 @@
 		"module": "esnext",
 		"baseUrl": "./",
 		"paths": {
-			"src/*": ["src/*"]
+			"store/*": ["ts/store/*"],
+			"styles/*": ["scss/*"],
+			"components/*": ["svelte/components/*"],
+			"global/*": ["ts/global/*"]
 		}
 	}
 }

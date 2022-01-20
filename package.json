@@ -1,5 +1,5 @@
 {
-  "name": "plotty",
+  "name": "flask-svelte-template",
   "version": "0.0.0",
   "devDependencies": {
     "@tsconfig/svelte": "^1.0.10",
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "build": "npx webpack --config frontend/webpack.prod.js",
-    "dev": "npx webpack serve --config frontend/webpack.dev.js"
+    "dev": "npx webpack --config frontend/webpack.dev.js"
   },
   "dependencies": {
     "@fontsource/comfortaa": "^4.5.0",

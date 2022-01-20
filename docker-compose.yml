@@ -7,6 +7,7 @@ services:
       context: ./
       network: host
     volumes:
+      - ./.git:/home/app/.git
       - ./dist:/home/app/dist
     profiles:
       - prod
@@ -21,9 +22,8 @@ services:
     ports:
       - '5000:5000'
     volumes:
-      - ./static:/home/app/static
+      - ./.git:/home/app/.git
       - ./dist:/home/app/dist
-      - ./app:/home/app/app
-    entrypoint: ["npm", "start"]
+    entrypoint: ["npm", "run", "dev"]
     profiles:
       - dev

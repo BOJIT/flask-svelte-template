@@ -1,5 +1,4 @@
 /* Get dependencies from webpack.common */
-const path = require("path");
 const webpack = require('webpack');
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
@@ -20,15 +19,8 @@ let gitTag = require('child_process')
 
 module.exports = merge(common, {
 	mode: "development",
+	watch: true,
 	devtool: 'source-map',
-	devServer: {
-		compress: true,
-		host: '0.0.0.0',
-		port: 4000,
-		static: {
-			directory: path.join(__dirname, 'dist')
-		}
-	},
 	module: {
 		rules: [
 			{
@@ -49,7 +41,7 @@ module.exports = merge(common, {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "./src/index.html"
+			// template: "./src/index.html"
 		}),
 		new webpack.DefinePlugin({
 			__COMMIT_HASH__: JSON.stringify(commitHash),
