@@ -30,7 +30,7 @@
 
 <style lang="scss">
 	@charset "utf-8";
-	@use "scss/theme.scss";
+	@use "frontend/scss/theme.scss";
 
 	.tabs {
 		@include theme.themed() {

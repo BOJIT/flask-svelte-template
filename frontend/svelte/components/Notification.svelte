@@ -37,7 +37,7 @@
 
 <style lang="scss">
 	@charset "utf-8";
-	@use "scss/theme.scss";
+	@use "frontend/scss/theme.scss";
 
 	.container {
 		position: absolute;
@@ -49,7 +49,7 @@
 		padding: 0.5rem;
 	}
 
-	@media screen and (max-width: (constants.$desktop - 1)) {
+	@media screen and (max-width: 768px) {
 		.container {
 			width: 100%;
 		}
