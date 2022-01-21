@@ -7,6 +7,9 @@
 
 	/* State stores */
 	import notification from "store/notification";
+	import modal from 'store/modal';
+	import modals from 's/modals';
+import Settings from 's/modals/Settings.svelte';
 
 	/* Burger menu */
 	let visible = false;
@@ -75,6 +78,7 @@
 
 		<!-- Settings -->
 		<button on:click={() => {
+				$modal = modals.Settings;
 			}} class="button desktop is-medium is-clear">
 			<span class="icon">
 				<Icon data={faCog} scale={1.6} />
@@ -197,6 +201,8 @@
 		font-size: 2rem;
 		font-weight: 50;
 		font-family: "comfortaa";
+		vertical-align: middle;
+		margin-bottom: 0rem;
 		@include theme.themed() {
 			color: theme.t(theme.$text-primary);
 		}

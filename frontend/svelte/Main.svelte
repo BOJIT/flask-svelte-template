@@ -7,14 +7,19 @@
 	import modal from "store/modal";
 
 	/* Svelte components */
-	import Notification from "s/components/Notification.svelte";
-	import Navbar from "./components/Navbar.svelte";
+	import Header from "./components/Header.svelte";
+	import Footer from "./components/Footer.svelte";
 	import Viewport from "./components/Viewport.svelte";
+	import Notification from "s/components/Notification.svelte";
 </script>
 
-<Navbar/>
+<div class="content">
+	<Header/>
 
-<Viewport/>
+	<Viewport/>
+
+	<Footer/>
+</div>
 
 <!-- Modal Overlay -->
 {#if $modal}
@@ -27,3 +32,16 @@
 
 <!-- Notifications -->
 <Notification/>
+
+<style lang="scss">
+	@charset "utf-8";
+	@use "scss/theme.scss";
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		height: 100vh;
+	}
+
+</style>

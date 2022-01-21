@@ -13,7 +13,7 @@
 	@use "scss/theme.scss";
 
 	.viewport {
-		height: 100%;
+		flex: 1 0 auto;
 		@include theme.themed() {
 			background-color: theme.t(theme.$background-secondary);
 		}
