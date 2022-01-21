@@ -35,7 +35,6 @@ module.exports = merge(common, {
 					protocol: 'http:',
 					port: 8080
 				},
-				ignorePath: true,
 				changeOrigin: true,
 				secure: false
 			}
@@ -61,7 +60,8 @@ module.exports = merge(common, {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			// template: "./src/index.html"
+			favicon: path.resolve(__dirname, './assets/favicon/icon_x48.png'),
+			title: "flask-svelte-template"
 		}),
 		new webpack.DefinePlugin({
 			__COMMIT_HASH__: JSON.stringify(commitHash),

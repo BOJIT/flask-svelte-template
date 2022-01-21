@@ -18,6 +18,6 @@ COPY Pipfile ./
 RUN pip3 install pipenv && pipenv install --deploy
 
 # Copy across all other files
-COPY ./ ./
+COPY . ./
 
 ENTRYPOINT [ "pipenv", "run", "python", "server.py" ]

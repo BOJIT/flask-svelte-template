@@ -1,15 +1,14 @@
 from flask import Flask, send_from_directory
 import os
-
-import random
+import api
 
 app = Flask(__name__)
 
 #------------------------------------------------------------------------------#
 
-@app.route("/api/rand")
-def hello():
-	return str(random.randint(0, 100))
+@app.route("/api/ping")
+def ping():
+	return api.ping()
 
 #------------------------------------------------------------------------------#
 

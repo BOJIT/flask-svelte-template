@@ -16,7 +16,6 @@ services:
   dev-frontend:
     build:
       context: ./frontend/
-      # network: host
     expose:
       - '9090'
     ports:
@@ -31,7 +30,6 @@ services:
   dev-backend:
     build:
       context: ./backend/
-      # network: host
     expose:
       - '8080'
     ports:
