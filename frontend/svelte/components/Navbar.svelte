@@ -3,9 +3,12 @@
 
 	/* Font Awesome */
 	import Icon from 'svelte-awesome';
-	import { faPlay, faStop, faEdit, faFileAlt, faFolderOpen, faCopy, faCog, faBars, faChartLine} from '@fortawesome/free-solid-svg-icons';
+	import { faFileAlt, faFolderOpen, faCopy, faCog, faBars } from '@fortawesome/free-solid-svg-icons';
 
-	/* Burger Menu */
+	/* State stores */
+	import notification from "store/notification";
+
+	/* Burger menu */
 	let visible = false;
 
 	/* Function to detect a click outside the burger menu */
@@ -42,6 +45,12 @@
 
 		<!-- File Controls -->
 		<button on:click={() => {
+				notification.push({
+					title: "hey there!",
+					message: "test message",
+					type: "info",
+					timeout: 10,
+				})
 			}} class="button desktop is-medium is-clear">
 			<span class="icon">
 				<Icon data={faFileAlt} scale={1.6} />
@@ -242,30 +251,6 @@
 	.button:focus {
 		outline: none;
 		box-shadow: none;
-	}
-
-	.button.is-info {
-		@include theme.themed() {
-			background-color: theme.t(theme.$background-info);
-		}
-	}
-
-	.button.is-success {
-		@include theme.themed() {
-			background-color: theme.t(theme.$background-success);
-		}
-	}
-
-	.button.is-warning {
-		@include theme.themed() {
-			background-color: theme.t(theme.$background-warning);
-		}
-	}
-
-	.button.is-danger {
-		@include theme.themed() {
-			background-color: theme.t(theme.$background-error);
-		}
 	}
 
 	.button.is-clear {

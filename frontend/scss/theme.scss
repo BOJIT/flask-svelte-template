@@ -1,19 +1,19 @@
 @charset "utf-8";
 
 /* Default Variable Values - Sass 2.0 doesn't allow dynamic variable creation */
-$text-primary: "";
-$text-secondary: "";
+$text-primary: "text-primary";
+$text-secondary: "text-secondary";
 
-$background-primary: "";
-$background-secondary: "";
+$background-primary: "background-primary";
+$background-secondary: "background-secondary";
 
-$background-overlay: "";
-$background-overlay-hover: "";
+$background-overlay: "background-overlay";
+$background-overlay-hover: "background-overlay-hover";
 
-$background-info: "";
-$background-success: "";
-$background-warning: "";
-$background-error: "";
+$background-info: "background-info";
+$background-success: "background-success";
+$background-warning: "background-warning";
+$background-error: "background-error";
 
 /*----------------------------------------------------------------------------*/
 

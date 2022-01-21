@@ -1,9 +1,11 @@
 <script lang="ts">
-
+	import Button from "s/components/Button.svelte";
 </script>
 
 <div class="viewport">
-	<h1> tests</h1>
+	<Button/>
+	<Button/>
+	<Button/>
 </div>
 
 <style lang="scss">

@@ -5,7 +5,6 @@
 
 	/* State stores */
 	import modal from "store/modal";
-	import notification from "store/notification";
 
 	/* Svelte components */
 	import Notification from "s/components/Notification.svelte";
