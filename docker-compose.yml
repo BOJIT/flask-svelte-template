@@ -5,7 +5,7 @@ services:
   prod:
     build:
       context: ./frontend/
-      network: host
+      # network: host
     volumes:
       - ./.git:/home/app/.git
       - ./dist:/home/app/dist
@@ -16,7 +16,7 @@ services:
   dev-frontend:
     build:
       context: ./frontend/
-      network: host
+      # network: host
     expose:
       - '9090'
     ports:
@@ -31,7 +31,7 @@ services:
   dev-backend:
     build:
       context: ./backend/
-      network: host
+      # network: host
     expose:
       - '8080'
     ports:
@@ -39,5 +39,10 @@ services:
     volumes:
       - ./.git:/home/app/.git
       - ./backend:/home/app/backend
+    environment:
+      - FLASK_APP=server.py
+      - FLASK_ENV=development
+      - FLASK_HOST=0.0.0.0
+      - FLASK_PORT=8080
     profiles:
       - dev

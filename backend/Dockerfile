@@ -20,9 +20,4 @@ RUN pip3 install pipenv && pipenv install --deploy
 # Copy across all other files
 COPY ./ ./
 
-ENV FLASK_APP=server.py
-ENV FLASK_ENV=development
-ENV FLASK_HOST='0.0.0.0'
-ENV FLASK_PORT=8080
-
-ENTRYPOINT [ "pipenv", "run", "python", "-m", "flask", "run" ]
+ENTRYPOINT [ "pipenv", "run", "python", "server.py" ]

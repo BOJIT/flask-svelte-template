@@ -29,8 +29,15 @@ module.exports = merge(common, {
 			directory: path.join(__dirname, 'dist')
 		},
 		proxy: {
-			"/api/*": {
-				target: "http://localhost:8080"
+			'/api': {
+				target: {
+					host: "dev-backend",
+					protocol: 'http:',
+					port: 8080
+				},
+				ignorePath: true,
+				changeOrigin: true,
+				secure: false
 			}
 		}
 	},

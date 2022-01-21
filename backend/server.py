@@ -7,27 +7,25 @@ app = Flask(__name__)
 
 #------------------------------------------------------------------------------#
 
-# Path for our main Svelte page
-@app.route("/")
-def base():
-	return send_from_directory('../dist', 'index.html')
-
-# Path for all the static files (compiled JS/CSS, etc.)
-@app.route("/<path:path>")
-def home(path):
-	return send_from_directory('../dist', path)
-
-
-@app.route("/rand")
+@app.route("/api/rand")
 def hello():
 	return str(random.randint(0, 100))
 
 #------------------------------------------------------------------------------#
 
+def getConfig(key):
+	conf = os.environ.get(key)
+	if conf is None:
+		raise Exception('Environment Variable "' + key + '" not set!')
+	return conf
+
 if __name__ == "__main__":
-	flask_env = os.environ.get['FLASK_ENV']
-	flask_host = os.envrion.get['FLASK_HOST']
-	flask_port = os.environ.get['FLASK_PORT']
+	# Get environmment variables
+	flask_env = getConfig('FLASK_ENV')
+	flask_host = getConfig('FLASK_HOST')
+	flask_port = getConfig('FLASK_PORT')
+
+	# Run server
 	if flask_env == 'development':
 		app.run(debug=True, host=flask_host, port=flask_port)
 	else:
