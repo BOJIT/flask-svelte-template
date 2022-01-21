@@ -9,17 +9,13 @@
 
 	/* Svelte components */
 	import Notification from "s/components/Notification.svelte";
+	import Navbar from "./components/Navbar.svelte";
+	import Viewport from "./components/Viewport.svelte";
 </script>
 
-<h1>Hello World!</h1>
-<button on:click={() => {
-	notification.push({
-		type: "error",
-		title: "Hey there!",
-		message: "test message",
-		timeout: 10
-	});
-}}>TEST</button>
+<Navbar/>
+
+<Viewport/>
 
 <!-- Modal Overlay -->
 {#if $modal}

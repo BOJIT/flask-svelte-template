@@ -21,8 +21,11 @@ services:
     ports:
       - '9090:9090'
     volumes:
-      - ./.git:/home/app/.git
-      - ./frontend:/home/app/frontend
+      - ./.git:/home/app/.git:ro
+      - ./frontend/assets:/home/app/assets:ro
+      - ./frontend/scss:/home/app/scss:ro
+      - ./frontend/svelte:/home/app/svelte:ro
+      - ./frontend/ts:/home/app/ts:ro
     entrypoint: ["npm", "run", "dev"]
     profiles:
       - dev
@@ -35,10 +38,10 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - ./.git:/home/app/.git
-      - ./backend:/home/app/backend
+      - ./.git:/home/app/.git:ro
+      - ./backend:/home/app/src/:ro
     environment:
-      - FLASK_APP=server.py
+      - FLASK_APP=src/server.py
       - FLASK_ENV=development
       - FLASK_HOST=0.0.0.0
       - FLASK_PORT=8080
