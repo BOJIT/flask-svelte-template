@@ -8,6 +8,9 @@ Template for lightweight applications with a Python backend (Flask) and a Svelte
 ```
 
 ## Run Development Server (Front and Backend)
+
+The dev server runs the static frontend dev server on port 9090, and Flask on port 8080.
+
 ```bash
     docker-compose --profile dev up
 ```

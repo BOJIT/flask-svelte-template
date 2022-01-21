@@ -1,7 +1,7 @@
 /* Main Script Entrypoint */
 
-import 'styles/main.scss';
-import Main from 'components/../Main.svelte';
+import 'scss/main.scss';
+import Main from 's/Main.svelte';
 
 const main = new Main({
 	target: document.body

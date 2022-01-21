@@ -4,7 +4,7 @@ services:
   # Production build
   prod:
     build:
-      context: ./
+      context: ./frontend/
       network: host
     volumes:
       - ./.git:/home/app/.git
@@ -13,18 +13,31 @@ services:
       - prod
 
   # Development server
-  dev:
+  dev-frontend:
     build:
-      context: ./
+      context: ./frontend/
       network: host
     expose:
-      - '5000'
+      - '9090'
     ports:
-      - '5000:5000'
+      - '9090:9090'
     volumes:
       - ./.git:/home/app/.git
-      - ./dist:/home/app/dist
       - ./frontend:/home/app/frontend
     entrypoint: ["npm", "run", "dev"]
+    profiles:
+      - dev
+
+  dev-backend:
+    build:
+      context: ./backend/
+      network: host
+    expose:
+      - '8080'
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./.git:/home/app/.git
+      - ./backend:/home/app/backend
     profiles:
       - dev

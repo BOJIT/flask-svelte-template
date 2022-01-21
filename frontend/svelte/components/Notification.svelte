@@ -37,7 +37,7 @@
 
 <style lang="scss">
 	@charset "utf-8";
-	@use "frontend/scss/theme.scss";
+	@use "scss/theme.scss";
 
 	.container {
 		position: absolute;

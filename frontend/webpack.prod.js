@@ -1,8 +1,8 @@
 /* Get dependencies from webpack.common */
+const path = require('path');
 const webpack = require('webpack');
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
-const path = require('path');
 
 /* Environment-specific dependencies */
 const HtmlWebpackPlugin = require("html-webpack-plugin");

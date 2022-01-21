@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Flask = "*"
-eventlet = "*"
+Flask = "2.0.2"
+Flask-Login = "0.5.0"
+Flask-WTF = "1.0.0"
 
 [dev-packages]
 

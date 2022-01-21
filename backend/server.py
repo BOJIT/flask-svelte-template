@@ -1,4 +1,5 @@
 from flask import Flask, send_from_directory
+import os
 
 import random
 
@@ -24,4 +25,10 @@ def hello():
 #------------------------------------------------------------------------------#
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	flask_env = os.environ.get['FLASK_ENV']
+	flask_host = os.envrion.get['FLASK_HOST']
+	flask_port = os.environ.get['FLASK_PORT']
+	if flask_env == 'development':
+		app.run(debug=True, host=flask_host, port=flask_port)
+	else:
+		app.run(host=flask_host, port=flask_port)

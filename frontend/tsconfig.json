@@ -9,9 +9,9 @@
 		"baseUrl": "./",
 		"paths": {
 			"store/*": ["ts/store/*"],
-			"styles/*": ["scss/*"],
-			"components/*": ["svelte/components/*"],
-			"global/*": ["ts/global/*"]
+			"scss/*": ["scss/*"],
+			"global/*": ["ts/global/*"],
+			"s/*": ["svelte/*"],
 		}
 	}
 }

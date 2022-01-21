@@ -1,4 +1,5 @@
 /* Get dependencies from webpack.common */
+const path = require('path');
 const webpack = require('webpack');
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
@@ -19,8 +20,20 @@ let gitTag = require('child_process')
 
 module.exports = merge(common, {
 	mode: "development",
-	watch: true,
 	devtool: 'source-map',
+	devServer: {
+		compress: true,
+		host: '0.0.0.0',
+		port: 9090,
+		static: {
+			directory: path.join(__dirname, 'dist')
+		},
+		proxy: {
+			"/api/*": {
+				target: "http://localhost:8080"
+			}
+		}
+	},
 	module: {
 		rules: [
 			{

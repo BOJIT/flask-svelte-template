@@ -8,7 +8,7 @@
 	import notification from "store/notification";
 
 	/* Svelte components */
-	import Notification from "components/Notification.svelte";
+	import Notification from "s/components/Notification.svelte";
 </script>
 
 <h1>Hello World!</h1>
