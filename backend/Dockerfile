@@ -20,4 +20,7 @@ RUN pip3 install pipenv && pipenv install --deploy
 # Copy across all other files
 COPY . ./src/
 
-ENTRYPOINT [ "pipenv", "run", "python", "src/server.py" ]
+# Make build script executable
+RUN ["chmod", "+x", "./src/build.sh"]
+
+ENTRYPOINT "./src/build.sh"

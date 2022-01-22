@@ -9,7 +9,6 @@
 	import notification from "store/notification";
 	import modal from 'store/modal';
 	import modals from 's/modals';
-import Settings from 's/modals/Settings.svelte';
 
 	/* Burger menu */
 	let visible = false;
