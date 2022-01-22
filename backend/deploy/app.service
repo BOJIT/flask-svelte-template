@@ -1,0 +1,9 @@
+[Unit]
+Description=Gunicorn instance to serve app backend
+After=network.target
+
+[Service]
+User=pi
+Group=www-data
+WorkingDirectory=/home/pi/app
+ExecStart=gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
