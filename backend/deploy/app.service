@@ -6,4 +6,4 @@ After=network.target
 User=pi
 Group=www-data
 WorkingDirectory=/home/pi/app
-ExecStart=gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
+ExecStart=/usr/local/bin/pipenv run gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app

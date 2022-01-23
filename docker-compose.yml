@@ -7,15 +7,16 @@ services:
       context: ./frontend/
     volumes:
       - ./.git:/home/app/.git:ro
-      - ./dist/static:/home/app/dist:rw
+      - ./dist/app/static:/home/app/dist:rw
     profiles:
       - prod
+
   prod-backend:
     build:
       context: ./backend/
     volumes:
       - ./.git:/home/app/.git:ro
-      - ./dist:/home/app/dist:rw
+      - ./dist/app/:/home/app/dist:rw
     profiles:
       - prod
 
