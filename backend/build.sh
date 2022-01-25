@@ -13,4 +13,3 @@ mv ./dist/deploy/* ./dist/
 rm ./dist/build.sh
 rm ./dist/Dockerfile
 rmdir ./dist/deploy
-
